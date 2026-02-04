@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('input_aspirasis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            // $table->foreignId('aspirasi_id')->constrained('aspirasis')-> onDelete('cascade');
+            $table->text('keterangan');
+            $table->string('lokasi');
+            $table->foreignId('kategori_id')->constrained('kategoris')-> onDelete('cascade');
             $table->timestamps();
         });
     }

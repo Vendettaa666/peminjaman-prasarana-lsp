@@ -49,4 +49,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function inputAspirasis() {
+        return $this->hasMany(InputAspirasi::class, 'user_id');
+    }
 }

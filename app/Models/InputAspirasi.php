@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class InputAspirasi extends Model
 {
-    //
+    protected $fillable = [
+    'user_id',
+    'keterangan',
+    'kategori_id',
+    'lokasi'
+    ];
+
+    public function users() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function kategoris() {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
+
+    public function aspirasis() {
+        return $this->hasOne(Aspirasi::class, 'input_aspirasi_id');
+    }
 }
