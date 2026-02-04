@@ -13,4 +13,7 @@ Route::post('/login', [AuthController::class,'login']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::prefix('/dashboard')->middleware('auth')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+});
+
