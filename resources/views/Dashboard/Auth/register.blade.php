@@ -40,8 +40,8 @@
                 </div>
                  <div class="w-full flex flex-col items-center">
                     {{-- <input type="text" name="kelas" placeholder="Kelas" class="w-80 h-8 mt-4 rounded-lg p-2"> --}}
-                    <select name="kelas" id="">
-                        <option value="" disabled selected>Pilih Kelas</option>
+                    <select name="kelas" id=""  class="w-80 h-10 mt-4 rounded-lg p-2">
+                        {{-- <option value="" disabled selected>Pilih Kelas</option> --}}
                         <option value="X">10</option>
                         <option value="XI">11</option>
                         <option value="XII">12</option>
