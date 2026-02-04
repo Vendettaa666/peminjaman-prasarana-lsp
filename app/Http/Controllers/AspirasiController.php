@@ -12,7 +12,7 @@ class AspirasiController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.aspirasi.index');
     }
 
     /**
