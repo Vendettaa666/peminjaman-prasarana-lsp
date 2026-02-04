@@ -24,6 +24,8 @@
                 @csrf
                 <input type="hidden" name="role" value="student">
                 <div class="w-full flex flex-col items-center">
+                    {{-- <label for=""></label> --}}
+                    <label for="name" class="items-start">Name :</label>
                     <input type="text" name="name" placeholder="Name" class="w-80 h-8 mt-4 rounded-lg p-2">
                 </div>
                  <div class="w-full flex flex-col items-center">
