@@ -1,47 +1,75 @@
+
+
 @extends('layouts.main')
-@section('title', 'Dashboard Home')
+@section('title', 'Kategori Dashboard')
 @section('content')
 
-    <div class="">
-        <h1 class="text-xl font-bold p-4">Kategori</h1>
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">Daftar Kategori</h1>
+            <a href="{{ route('kategori.create') }}"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.4 rounded-lg shadow-md transition duration-200 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                        clip-rule="evenodd" />
+                </svg>
+                Tambah Kategori
+            </a>
+        </div>
 
-        <a href="{{ route('kategori.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 inline-block">
-            + Tambah Kategori
-        </a>
-
-        <div class="w-full h-auto bg-gray-300 rounded-lg flex p-4">
-            <table class="w-full table-auto">
-                <thead>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50 border-b border-gray-200">
                     <tr>
-                        <th class="border px-4 py-2">ID</th>
-                        <th class="border px-4 py-2">Nama Kategori</th>
-                        <th class="border px-4 py-2">Keterangan</th>
-                        <th class="border px-4 py-2">Aksi</th>
+                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">ID</th>
+                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Nama Kategori</th>
+                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Keterangan</th>
+                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase text-center">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="divide-y divide-gray-200">
                     @foreach ($alldata as $data)
-                        <tr>
-                            <td class="border px-4 py-2">{{ $data->id }}</td>
-                            <td class="border px-4 py-2">{{ $data->nama_kategori }}</td>
-                            <td class="border px-4 py-2">{{ $data->keterangan }}</td>
-                            <td class="border px-4 py-2 flex gap-2 justify-center">
-                                <a href="{{ route('kategori.edit', $data->id) }}"
-                                    class="bg-yellow-500 text-white px-4 py-2 rounded-lg">
-                                    Edit
-                                </a>
-                                <a href="{{ route('kategori.show', $data->id) }}"
-                                    class="bg-yellow-500 text-white px-4 py-2 rounded-lg">
-                                    Show
-                                </a>
-                                <form action="{{ route('kategori.destroy', $data->id) }}" method="POST"
-                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg">
-                                        Hapus
-                                    </button>
-                                </form>
+                        <tr class="hover:bg-gray-50 transition duration-150">
+                            <td class="px-6 py-4 text-sm text-gray-500">#{{ $data->id }}</td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm font-bold text-gray-900">{{ $data->nama_kategori }}</div>
+
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-xs text-gray-500">{{ $data->keterangan }}</div>
+                            </td>
+
+                            {{-- <td class="px-6 py-4">
+                        @if ($data->role === 'admin')
+                            <span class="px-3 py-1 text-xs font-medium bg-purple-100 text-purple-700 rounded-full uppercase">Admin</span>
+                        @else
+                            <span class="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full uppercase">Student</span>
+                        @endif
+                    </td> --}}
+                            {{-- <td class="px-6 py-4">
+                        @if ($data->role === 'admin')
+                            <span class="text-sm text-gray-400 italic">N/A</span>
+                        @else
+                            <div class="text-sm text-gray-700 font-medium">{{ $data->nisn }}</div>
+                            <div class="text-xs text-gray-500">{{ $data->kelas }} - {{ $data->jurusan }}</div>
+                        @endif
+                    </td> --}}
+                            <td class="px-6 py-4">
+                                <div class="flex justify-center items-center gap-3">
+                                    <a href="{{ route('kategori.show', $data->id) }}"
+                                        class="text-blue-600 hover:text-blue-900 font-medium text-sm">Lihat</a>
+                                    <a href="{{ route('kategori.edit', $data->id) }}"
+                                        class="text-yellow-600 hover:text-yellow-900 font-medium text-sm">Edit</a>
+
+                                    <form action="{{ route('kategori.destroy', $data->id) }}" method="POST" class="inline"
+                                        onsubmit="return confirm('Hapus kategori ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="text-red-600 hover:text-red-900 font-medium text-sm">Hapus</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -49,4 +77,11 @@
             </table>
         </div>
 
-    @endsection
+        @if ($alldata->isEmpty())
+            <div class="text-center py-10">
+                <p class="text-gray-500 italic">Belum ada data kategori.</p>
+            </div>
+        @endif
+    </div>
+
+@endsection

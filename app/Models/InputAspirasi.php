@@ -13,15 +13,15 @@ class InputAspirasi extends Model
     'lokasi'
     ];
 
-    public function users() {
+    public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function kategoris() {
+    public function kategori() {
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 
-    public function aspirasis() {
+    public function aspirasi() {
         return $this->hasOne(Aspirasi::class, 'input_aspirasi_id');
     }
 }

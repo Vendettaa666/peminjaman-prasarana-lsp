@@ -117,7 +117,7 @@
         }
 
         roleSelect.addEventListener('change', toggleFields);
-        toggleFields(); // Jalankan saat halaman pertama kali dimuat
+        toggleFields();
     });
 </script>
 

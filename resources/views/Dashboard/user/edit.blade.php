@@ -155,8 +155,6 @@
         function toggleStudentFields() {
             if (roleSelector.value === 'admin') {
                 studentFields.classList.add('hidden');
-                // PENTING: Jangan kosongkan value saat EDIT jika role berganti ke admin
-                // Biarkan user yang memutuskan untuk menyimpannya (controller akan handle set null)
             } else {
                 studentFields.classList.remove('hidden');
             }

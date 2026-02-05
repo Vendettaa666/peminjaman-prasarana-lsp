@@ -11,7 +11,7 @@ class Kategori extends Model
         'keterangan',
     ];
 
-    public function inputAspirasis() {
+    public function inputAspirasi() {
         return $this->hasMany(InputAspirasi::class, 'kategori_id');
     }
 }

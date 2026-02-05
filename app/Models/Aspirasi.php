@@ -12,7 +12,7 @@ class Aspirasi extends Model
         'feedback',
     ];
 
-    public function inputAspirasis() {
+    public function inputAspirasi() {
         return $this->belongsTo(InputAspirasi::class, 'input_aspirasi_id');
     }
 }

@@ -34,9 +34,9 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="md:col-span-1 space-y-6">
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center">
-                    <div class="w-28 h-28 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mx-auto flex items-center justify-center text-white text-4xl font-black mb-4 shadow-lg">
+                    {{-- <div class="w-28 h-28 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mx-auto flex items-center justify-center text-white text-4xl font-black mb-4 shadow-lg">
                         {{ strtoupper(substr($userfind->name, 0, 1)) }}
-                    </div>
+                    </div> --}}
                     <h2 class="text-xl font-bold text-gray-800 break-words">{{ $userfind->name }}</h2>
                     <p class="text-gray-500 text-sm mb-6">{{ $userfind->email }}</p>
 

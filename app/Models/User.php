@@ -50,7 +50,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function inputAspirasis() {
+    public function inputAspirasi() {
         return $this->hasMany(InputAspirasi::class, 'user_id');
     }
 }
