@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', function () {
     return view('dashboard.auth.login');
@@ -29,5 +30,16 @@ Route::middleware('auth')->group(function () {
         Route::patch('/{id}', [KategoriController::class, 'update'])->name('update');
         Route::put('/{id}', [KategoriController::class, 'update'])->name('update');
         Route::delete('/{id}', [KategoriController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('user')->name('user.')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::get('/create', [UserController::class, 'create'])->name('create');
+        Route::post('/store', [UserController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+        Route::get('/{id}', [UserController::class, 'show'])->name('show');
+        Route::patch('/{id}', [UserController::class, 'update'])->name('update');
+        Route::put('/{id}', [UserController::class, 'update'])->name('update');
+        Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
 });

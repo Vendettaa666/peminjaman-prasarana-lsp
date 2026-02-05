@@ -7,7 +7,10 @@
                 <a href="{{ route('dashboard') }}" class="block px-4 py-2 rounded hover:bg-gray-700 hover:text-white">Home</a>
             </li>
             <li class="mb-4">
-                <a href="{{ route('dashboard') }}" class="block px-4 py-2 rounded hover:bg-gray-700 hover:text-white">Barang</a>
+                <a href="{{ route('kategori.index') }}" class="block px-4 py-2 rounded hover:bg-gray-700 hover:text-white">Kategori</a>
+            </li>
+            <li class="mb-4">
+                <a href="{{ route('user.index') }}" class="block px-4 py-2 rounded hover:bg-gray-700 hover:text-white">User</a>
             </li>
         </ul>
         <button>

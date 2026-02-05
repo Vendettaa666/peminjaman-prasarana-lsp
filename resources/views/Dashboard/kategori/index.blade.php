@@ -30,9 +30,9 @@
                                     class="bg-yellow-500 text-white px-4 py-2 rounded-lg">
                                     Edit
                                 </a>
-                                <a href="{{ route('kategori.edit', $data->id) }}"
+                                <a href="{{ route('kategori.show', $data->id) }}"
                                     class="bg-yellow-500 text-white px-4 py-2 rounded-lg">
-                                    Edit
+                                    Show
                                 </a>
                                 <form action="{{ route('kategori.destroy', $data->id) }}" method="POST"
                                     onsubmit="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">
@@ -43,7 +43,6 @@
                                     </button>
                                 </form>
                             </td>
-
                         </tr>
                     @endforeach
                 </tbody>
